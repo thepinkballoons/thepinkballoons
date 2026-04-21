@@ -85,149 +85,128 @@ class="grid md:grid-cols-3 gap-8">
 
 <script>
 
+<script>
+
 const galleryData = [
 
 {
-name:"Hello Kitty Theme",
-price:"₹2249",
-image:"1.jpeg"
+category:"Kids Theme Decoration",
+items:[
+{name:"Hello Kitty",price:"₹2349",image:"1.jpeg"},
+{name:"Cocomelon Birthday Decoration",price:"₹2449",image:"15.jpg"},
+{name:"Princess Birthday Decoration",price:"₹1449",image:"18.jpg"}
+]
 },
 
 {
-name:"Car Dickey Birthday Decoration",
-price:"₹1249",
-image:"2.jpeg"
+category:"Car Dickey Decoration",
+items:[
+{name:"Car Dickey Birthday Decoration",price:"₹2349",image:"2.jpeg"}
+]
 },
 
 {
-name:"Classic White & Gold",
-price:"₹1549",
-image:"3.jpeg"
+category:"Classic Decoration",
+items:[
+{name:"Classic White & Gold",price:"₹2349",image:"3.jpeg"},
+{name:"Black & Gold",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.22 PM.jpeg"}
+]
 },
 
 {
-name:"Flamingo Theme",
-price:"₹2449",
-image:"4.jpeg"
+category:"Ring Decoration",
+items:[
+{name:"Round Balloon Birthday",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.25 PM.jpeg"},
+{name:"Chrome Birthday",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.26 PM.jpeg"},
+{name:"Pastel Peach Ring Birthday Setup",price:"₹2149",image:"17.jpg"},
+{name:"Cars Theme Ring Birthday Decoration",price:"₹2149",image:"19.jpg"},
+{name:"Rose Gold & Golden Ring Birthday Setup",price:"₹2449",image:"20.jpg"}
+]
 },
 
 {
-name:"Black & Gold Backdrop",
-price:"₹1999",
-image:"WhatsApp Image 2026-04-21 at 3.55.22 PM.jpeg"
+category:"1st Birthday Decoration",
+items:[
+{name:"1st Birthday Package",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.27 PM.jpeg"},
+{name:"Jungle Theme 1st Birthday Decoration",price:"₹2449",image:"16.jpg"}
+]
 },
 
 {
-name:"Round Balloon Birthday",
-price:"₹2249",
-image:"WhatsApp Image 2026-04-21 at 3.55.25 PM.jpeg"
-},
-
-{
-name:"Chrome Birthday Decoration",
-price:"₹1999",
-image:"WhatsApp Image 2026-04-21 at 3.55.26 PM.jpeg"
-},
-
-{
-name:"1st Birthday Package",
-price:"₹2349",
-image:"WhatsApp Image 2026-04-21 at 3.55.27 PM.jpeg"
-},
-{
-name:"Royal Green & Gold",
-price:"₹2349",
-image:"5.jpg"
-},
-
-{
-name:"Princess Pink Theme",
-price:"₹2349",
-image:"6.jpg"
-},
-
-{
-name:"Black & Gold Luxury",
-price:"₹2449",
-image:"7.jpg"
-},
-
-{
-name:"Divine Krishna Theme",
-price:"₹1949",
-image:"8.jpg"
-},
-
-{
-name:"Baby Girl Decoration",
-price:"₹1149",
-image:"9.jpg"
-},
-
-{
-name:"Premium Black & Gold Setup",
-price:"₹2349",
-image:"10.jpg"
-},
-
-{
-name:"Graduation Theme Decoration",
-price:"₹1549",
-image:"11.jpg"
-},
-
-{
-name:"Elegant Rose Gold Ring Setup",
-price:"₹2149",
-image:"12.jpg"
-},
-
-{
-name:"Golden Silver Decoration",
-price:"₹2349",
-image:"13.jpg"
-},
-
-{
-name:"Royal Blue Silver Theme",
-price:"₹2349",
-image:"14.jpg"
-},
-{
-name:"Cocomelon Birthday Decoration",
-price:"₹2449",
-image:"15.jpg"
-},
-
-{
-name:"Jungle Theme 1st Birthday Decoration",
-price:"₹2449",
-image:"16.jpg"
-},
-
-{
-name:"Pastel Peach Ring Birthday Setup",
-price:"₹2149",
-image:"17.jpg"
-},
-
-{
-name:"Princess Birthday Decoration",
-price:"₹1449",
-image:"18.jpg"
-},
-
-{
-name:"Cars Theme Ring Birthday Decoration",
-price:"₹2149",
-image:"19.jpg"
-},
-
-{
-name:"Rose Gold & Golden Ring Birthday Setup",
-price:"₹2449",
-image:"20.jpg"
+category:"Premium Decoration",
+items:[
+{name:"Flamingo Theme",price:"₹2349",image:"4.jpeg"},
+{name:"Royal Green & Gold",price:"₹2349",image:"5.jpg"},
+{name:"Princess Pink Theme",price:"₹2349",image:"6.jpg"},
+{name:"Black & Gold Luxury",price:"₹2449",image:"7.jpg"},
+{name:"Divine Krishna Theme",price:"₹1949",image:"8.jpg"}
+]
 }
+
+];
+
+
+const galleryContainer = document.getElementById("gallery");
+const categoryButtons = document.getElementById("categoryButtons");
+
+
+function loadCategories() {
+
+categoryButtons.innerHTML="";
+
+galleryData.forEach((cat,index)=>{
+
+const btn=document.createElement("button");
+
+btn.innerText=cat.category;
+
+btn.className="categoryBtn";
+
+btn.onclick=()=>loadGallery(index);
+
+categoryButtons.appendChild(btn);
+
+});
+
+}
+
+
+function loadGallery(categoryIndex){
+
+galleryContainer.innerHTML="";
+
+galleryData[categoryIndex].items.forEach(item=>{
+
+galleryContainer.innerHTML+=`
+
+<div class="card">
+
+<img src="${item.image}">
+
+<h3>${item.name}</h3>
+
+<p>${item.price}</p>
+
+<a href="https://wa.me/918755326881" target="_blank">
+
+<button class="bookBtn">Book Now</button>
+
+</a>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+loadCategories();
+
+loadGallery(0);
+
+</script>
 ];
 
 
