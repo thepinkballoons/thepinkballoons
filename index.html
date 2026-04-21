@@ -64,26 +64,10 @@ Premium Backdrop
 
 
 
-<!-- GALLERY -->
+<div id="categoryButtons"></div>
 
-<section class="max-w-7xl mx-auto px-6 pb-20">
+<div id="gallery"></div>
 
-<h2 class="text-3xl font-bold text-center mb-10">
-
-Our Decoration Packages
-
-</h2>
-
-
-<div id="gallery"
-class="grid md:grid-cols-3 gap-8">
-</div>
-
-</section>
-
-
-
-<script>
 
 <script>
 
@@ -94,7 +78,9 @@ category:"Kids Theme Decoration",
 items:[
 {name:"Hello Kitty",price:"₹2349",image:"1.jpeg"},
 {name:"Cocomelon Birthday Decoration",price:"₹2449",image:"15.jpg"},
-{name:"Princess Birthday Decoration",price:"₹1449",image:"18.jpg"}
+{name:"Princess Birthday Decoration",price:"₹1449",image:"18.jpg"},
+{name:"Royal Green & Gold",price:"₹2349",image:"5.jpg"},
+{name:"Princess Pink Theme",price:"₹2349",image:"6.jpg"}
 ]
 },
 
@@ -109,7 +95,8 @@ items:[
 category:"Classic Decoration",
 items:[
 {name:"Classic White & Gold",price:"₹2349",image:"3.jpeg"},
-{name:"Black & Gold",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.22 PM.jpeg"}
+{name:"Black & Gold",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.22 PM.jpeg"},
+{name:"Black & Gold Luxury",price:"₹2449",image:"7.jpg"}
 ]
 },
 
@@ -120,7 +107,7 @@ items:[
 {name:"Chrome Birthday",price:"₹2349",image:"WhatsApp Image 2026-04-21 at 3.55.26 PM.jpeg"},
 {name:"Pastel Peach Ring Birthday Setup",price:"₹2149",image:"17.jpg"},
 {name:"Cars Theme Ring Birthday Decoration",price:"₹2149",image:"19.jpg"},
-{name:"Rose Gold & Golden Ring Birthday Setup",price:"₹2449",image:"20.jpg"}
+{name:"Rose Gold Ring Birthday Setup",price:"₹2449",image:"20.jpg"}
 ]
 },
 
@@ -136,14 +123,85 @@ items:[
 category:"Premium Decoration",
 items:[
 {name:"Flamingo Theme",price:"₹2349",image:"4.jpeg"},
-{name:"Royal Green & Gold",price:"₹2349",image:"5.jpg"},
-{name:"Princess Pink Theme",price:"₹2349",image:"6.jpg"},
-{name:"Black & Gold Luxury",price:"₹2449",image:"7.jpg"},
-{name:"Divine Krishna Theme",price:"₹1949",image:"8.jpg"}
+{name:"Divine Krishna Theme",price:"₹1949",image:"8.jpg"},
+{name:"Theme Decoration",price:"₹2349",image:"21.png"},
+{name:"Theme Decoration",price:"₹2349",image:"22.png"},
+{name:"Theme Decoration",price:"₹2349",image:"23.png"},
+{name:"Theme Decoration",price:"₹2349",image:"24.png"},
+{name:"Theme Decoration",price:"₹2349",image:"25.png"},
+{name:"Theme Decoration",price:"₹2349",image:"26.png"},
+{name:"Theme Decoration",price:"₹2349",image:"27.png"},
+{name:"Theme Decoration",price:"₹2349",image:"28.png"},
+{name:"Theme Decoration",price:"₹2349",image:"29.png"},
+{name:"Theme Decoration",price:"₹2349",image:"30.png"}
 ]
 }
 
 ];
+
+
+const galleryContainer=document.getElementById("gallery");
+
+const categoryButtons=document.getElementById("categoryButtons");
+
+
+function loadCategories(){
+
+categoryButtons.innerHTML="";
+
+galleryData.forEach((cat,index)=>{
+
+const btn=document.createElement("button");
+
+btn.innerText=cat.category;
+
+btn.className="categoryBtn";
+
+btn.onclick=()=>loadGallery(index);
+
+categoryButtons.appendChild(btn);
+
+});
+
+}
+
+
+function loadGallery(categoryIndex){
+
+galleryContainer.innerHTML="";
+
+galleryData[categoryIndex].items.forEach(item=>{
+
+galleryContainer.innerHTML+=`
+
+<div class="card">
+
+<img src="images/${item.image}">
+
+<h3>${item.name}</h3>
+
+<p>${item.price}</p>
+
+<a href="https://wa.me/918755326881" target="_blank">
+
+<button class="bookBtn">Book Now</button>
+
+</a>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+loadCategories();
+
+loadGallery(0);
+
+</script>
 
 
 const galleryContainer = document.getElementById("gallery");
